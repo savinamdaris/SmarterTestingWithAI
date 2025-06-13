@@ -8,12 +8,12 @@
 - **Expected Output:** Detailed test plan with code snippets and data setup in JAVA
 - **Nuance:** Consider PCI compliance requirements and third-party API failures
 
-![Screenshot of the ChatGPT prompt](../images/promt_for_RISEN_model.png)
+![Screenshot of the ChatGPT prompt](/screenshots/promt_for_RISEN_model.png)
 
 ## Output:
-# Test Automation Strategy Covering Happy Path and Error Scenarios
+**Test Automation Strategy Covering Happy Path and Error Scenarios**
 
-## 1. Requirement Analysis & Scope Definition
+### 1. Requirement Analysis & Scope Definition
 
 - Study critical user journeys: onboarding & KYC, authentication, trading (order placement), funds management, notifications.
 - Enforce PCI compliance aspects around secure handling of payment/fund data (e.g., encryption, no sensitive data logging).
@@ -21,7 +21,7 @@
 
 ---
 
-## 2. Test Case Planning
+### 2. Test Case Planning
 
 ### ✅ Happy Path Scenarios
 
@@ -50,7 +50,7 @@
 
 ---
 
-## 3. Test Data Design
+### 3. Test Data Design
 
 - Use existing test users:
   - Alice Johnson (LOW expertise)
@@ -64,7 +64,7 @@
 
 ---
 
-## 4. Test Environment Preparation
+### 4. Test Environment Preparation
 
 - Configure isolated test environments aligned with production (security settings, certificates, DB snapshots).
 - Integrate mocks/stubs or service virtualizations for third-party APIs to simulate failure and latency.
@@ -72,7 +72,7 @@
 
 ---
 
-## 5. Automation Framework Setup
+### 5. Automation Framework Setup
 
 - **Playwright Java bindings** for UI automation:
   - Page Object Model (POM) to isolate UI selectors.
@@ -84,7 +84,7 @@
 
 ---
 
-## 6. Implement Tests Covering:
+### 6. Implement Tests Covering:
 
 - UI tests on React.js interface and TradingView widgets.
 - Authentication flows with 2FA and session management.
@@ -95,7 +95,7 @@
 
 ---
 
-## 7. CI/CD Integration and Monitoring
+### 7. CI/CD Integration and Monitoring
 
 - Automate test triggering on code commits and milestone builds in Bamboo.
 - Fail the build on critical security/PCI test failures.
@@ -104,16 +104,16 @@
 
 ---
 
-## ✅ Expected Output
+### ✅ Expected Output
 
 - A complete automated test suite validating both happy and edge/error paths.
 - Test coverage mapped to regulatory and compliance requirements (PCI, KYC, AML).
 - Detailed reports via Allure showing secure test execution.
 - Stable and maintainable automation framework integrated into CI/CD workflows.
 
-# Expected Output: Detailed Test Plan with Code Snippets and Data Setup in Java (Playwright)
+## Expected Output: Detailed Test Plan with Code Snippets and Data Setup in Java (Playwright)
 
-## 1. Test Plan Outline (Sample)
+### 1. Test Plan Outline (Sample)
 
 | Module              | Scenario                                             | Type       | Description                                           | Key Data / Preconditions                        | Notes on PCI & 3rd Party APIs                             |
 |---------------------|------------------------------------------------------|------------|-------------------------------------------------------|--------------------------------------------------|-----------------------------------------------------------|
@@ -133,7 +133,7 @@
 
 ---
 
-## 2. Sample Data Setup in Java (Playwright Context)
+### 2. Sample Data Setup in Java (Playwright Context)
 
 ```java
 /**

@@ -10,7 +10,7 @@ APPROACH: To ask AI to show reasoning before conclusion.
 - **Q3:** How would you approach scaling tests gradually from 1,000 to 10,000 concurrent users? What are potential risks and how would you mitigate them? Provide your detailed reasoning.
 
 
-## Output for Q1: 
+### Output for Q1: 
 
 **Key Performance Metrics to Prioritize for Load Testing a Trading Platform**
 
@@ -73,7 +73,7 @@ Prioritize metrics that reflect **capacity (throughput), speed (latency), reliab
 By focusing on these metrics during load testing, you can ensure the trading platform performs well under real-world conditions and maintains competitive advantages.
 
 ---
-## Output for Q2: 
+### Output for Q2: 
 **Considering the Platform Architecture and Workflows: Identifying High-Risk Testing Scenarios**
 
 ### Chain of Thought Reasoning and Answer
