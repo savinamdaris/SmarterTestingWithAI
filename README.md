@@ -5,7 +5,7 @@ Amdaris Smarter Testing With AI course led by Irina. The Purpose would be to hav
 ## Homework structure & details:
 * in main tree there is the **Project Context File** related to imaginary trading project :)
 * in folder "/prompts" are listed the main frameworks with real examples considering the entire trading project (part of **Homework_1**)
-* in folder "/screenshots" are stored few screenshots of AI tools and couple of real promts
+* in folder "/screenshots" are stored few screenshots of AI tools and couple of real promts (also part of **Homework_1**)
 * in folder "/user_stories" will be stored promts related only to User Stories  (part of **Homework_2**)
 * in folder "/bug_analysis" will be stored promts related only to Bug Analisys and .csv file containing example bugs (part of **Homework_3**) 
 
