@@ -3,11 +3,11 @@ Amdaris Smarter Testing With AI course led by Irina. The Purpose would be to hav
 
 
 ## Homework structure & details:
-* in main tree there is the **Project Context File** related to imaginary trading project :)
-* in folder "/prompts" are listed the main frameworks with real examples considering the entire trading project (part of **Homework_1**)
+* in the main tree/structure there is the **Project Context File** related to an imaginary Trading project (not yet found in Amdaris) :)
+* in folder "/prompts" are listed the main used frameworks with real examples and outputs considering the entire Trading project (part of **Homework_1**)
 * in folder "/screenshots" are stored few screenshots of AI tools and couple of real promts (also part of **Homework_1**)
-* in folder "/user_stories" will be stored promts related only to User Stories  (part of **Homework_2**)
-* in folder "/bug_analysis" will be stored promts related only to Bug Analisys and .csv file containing example bugs (part of **Homework_3**) 
+* in folder "/user_stories" will be stored promts and ouputs related to the User Stories (part of **Homework_2**)
+* in folder "/bug_analysis" will be stored promts and ouputs related to the Bug Analisys and .csv file containing "example" bugs as well as Risk-Based Testing Report (part of **Homework_3**) 
 
 
 ## Useed Links:
