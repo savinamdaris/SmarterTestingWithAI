@@ -1,12 +1,12 @@
 # RTF (Role, Task, Format)
 
-EXAMPLE:
+## Prompt:
 
 - **Role:** Senior QA Engineer specializing in Web testing
-- **Task:** Analyze my  Project [attach the Context Project File into the prompt] and identify 10 critical test scenarios for Web testing
+- **Task:** Analyze my Project [attach the Context Project File into the prompt] and identify 10 critical test scenarios for Web testing
 - **Format:** Table with user roles, test type, priority, and expected validation
 
-![Screenshot of the ChatGPT prompt](images/promt_for_RTF_model.png)
+![Screenshot of the ChatGPT prompt](../images/promt_for_RTF_model.png)
 
 ## Output: 
 | #  | User Role           | Test Type         | Priority | Scenario Description                                                                 | Expected Validation                                                                  |
