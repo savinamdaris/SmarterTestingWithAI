@@ -45,7 +45,10 @@ Generated from past bugs/incidents (Use Case 6)
 - Bug Split by Category (FE, BE, Migration, Other)
 - Bug Count by Priority & Status
 
-And cosider the following:
+
+---
+...And consider the following:
+
 5. AI-Driven Test Scope Generation from Historical Incidents
    Use case: Feed last year’s P1-P2 bugs and incidents into LLM to generate test ideas & automation scope.
 

@@ -53,7 +53,10 @@ These are major incidents from the last year. Suggest what test cases should be 
 Score each module from 1–5 based on bug volume, severity, and frequency. Recommend what areas should be tested and automated first.
 
 
-And cosider the following:1. Bug Clustering & Categorization
+---
+...And consider the following:
+
+1. Bug Clustering & Categorization
 Use case: Group past bugs by similarity to identify recurring patterns and problem areas.
 
 🧠 Prompt LLMs to process historical bug descriptions and group them by root cause, functionality, or severity.
