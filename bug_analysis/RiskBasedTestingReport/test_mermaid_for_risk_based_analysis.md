@@ -128,12 +128,17 @@ pie
 ## 5. Bug Density by Module (Bar Chart Visualization)
 
 ```mermaid
-bar
+pie
     title Bug Density by Module
-    x-axis Dashboard KYC Auth Analytics Notification Mobile Funds Compliance Audit
-    y-axis Bug Count
-    data
-        2 1 1 1 1 1 1 1 1
+    "Dashboard" : 2
+    "KYC" : 1
+    "Auth" : 1
+    "Analytics" : 1
+    "Notification" : 1
+    "Mobile" : 1
+    "Funds" : 1
+    "Compliance" : 1
+    "Audit" : 1
 ```
 
 ---
