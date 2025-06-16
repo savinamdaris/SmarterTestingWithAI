@@ -21,9 +21,13 @@
 - **Average resolution time:** [Data not available, recommend tracking in future sprints]
 
 - **Severity distribution pie chart:**  
-  - P1: 4  
-  - P2: 5  
-  - P3: 1
+ ```mermaid
+     pie
+      title Bug Severity Distribution
+      "P1 (Critical)" : 4
+      "P2 (Major)"    : 5
+      "P3 (Minor)"    : 1
+```
 
 - **Bugs by status bar chart:**  
   - Open: 10  

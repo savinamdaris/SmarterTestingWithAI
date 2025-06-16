@@ -1,6 +1,7 @@
-# 🟢 Prompt-to-Outcome Mapping for Risk-Based Testing (Markets.com)
+# Risk-Based Testing
 
-This report demonstrates how to use LLM/AI prompts for risk-based testing, mapping each prompt to its input (from `bugs_example.csv`) and the resulting actionable outcome. Root cause patterns and bug density are visualized using Mermaid JS for compatibility with Git and markdown viewers.
+This report demonstrates how to use AI prompts for risk-based testing, mapping each prompt to its input (from `bugs_example.csv`) and the resulting actionable outcome. 
+Root cause patterns and bug density are visualized using Mermaid JS for compatibility with Git and markdown viewers.
 
 ---
 
@@ -10,9 +11,9 @@ This report demonstrates how to use LLM/AI prompts for risk-based testing, mappi
 “Given these 10 incident reports, list test cases that would have caught the issues earlier.”
 
 **Input:**  
-All P1 and P2 bugs from `bugs_example.csv`.
+All P1 and P2 bugs from `bugs_example.csv`
 
-**Outcome:**  
+**Output:**  
 | Title                                               | Steps                                                                                   |
 |-----------------------------------------------------|-----------------------------------------------------------------------------------------|
 | KYC: Valid/invalid document upload                  | 1. Register user<br>2. Upload valid/invalid docs<br>3. Verify KYC result                |
@@ -25,7 +26,7 @@ All P1 and P2 bugs from `bugs_example.csv`.
 | Compliance: Block restricted jurisdiction           | 1. Register from restricted country<br>2. Verify registration is blocked                |
 | Audit: Trade execution logging                      | 1. Place trade<br>2. Check audit logs<br>3. Verify trade is logged                      |
 
-🎯 **Outcome/Actionable Steps:** Concrete backlog of regression tests to build and automate first.
+🎯 **Actionable Steps (Outcome):** Concrete backlog of regression tests to build and automate first.
 
 Example:
 A prioritized list of regression test cases derived from the most frequent and severe bugs, such as:
@@ -46,9 +47,9 @@ This backlog ensures that the most business-critical and previously problematic 
 
 **Input:**  
 - List of current test cases (assumed, e.g., KYC happy path, dashboard load, login, withdrawal, etc.)
-- Incident titles/descriptions from `bugs_example.csv`.
+- Incident titles/descriptions from `bugs_example.csv`
 
-**Outcome:**  
+**Output:**  
 | Incident/Bug Title                                 | Covered by Existing Test? | Gap/Action Needed                  |
 |----------------------------------------------------|--------------------------|------------------------------------|
 | KYC Verification fails for valid passport          | Partially                | Add negative/edge case tests       |
@@ -61,7 +62,7 @@ This backlog ensures that the most business-critical and previously problematic 
 | User from restricted jurisdiction can register     | No                       | Add jurisdiction compliance test   |
 | Trade execution not logged in audit trail          | No                       | Add audit logging test             |
 
-🎯 **Outcome/Actionable Steps:** Risk-based test gap report – immediate input for automation backlog.
+🎯 **Actionable Steps (Outcome):** Risk-based test gap report – immediate input for automation backlog.
 
 Example:
 A mapping of current test coverage versus recent incidents, highlighting:
@@ -80,7 +81,7 @@ This report directly informs the automation team which high-risk areas lack suff
 **Input:**  
 Bug frequency and severity from `bugs_example.csv` by module.
 
-**Outcome:**  
+**Output:**  
 | Module/Component         | Bug Count | P1 Count | Risk Score (1–5) | Rationale                                 |
 |-------------------------|-----------|----------|------------------|--------------------------------------------|
 | Dashboard (UI/Performance) | 2         | 0        | 5                | Frequent, user-facing, business critical   |
@@ -93,7 +94,7 @@ Bug frequency and severity from `bugs_example.csv` by module.
 | Compliance/Registration    | 1         | 1        | 5                | Regulatory, legal exposure                 |
 | Audit/Trading              | 1         | 0        | 4                | Compliance, traceability                   |
 
-🎯 **Outcome/Actionable Steps:** Focus testing and automation on highest-risk code paths.
+🎯 **Actionable Steps (Outcome):** Focus testing and automation on highest-risk code paths.
 
 Example:
 A risk matrix and visualizations (bar chart, mindmap) that show:
@@ -194,5 +195,3 @@ mindmap
 | Risk-based mindmap                                   | Module risk & test ideas     | Mermaid mindmap for QA planning            |
 
 ---
-
-*This mapping demonstrates how to operationalize AI/LLM prompts for risk-based QA, using real bug data to drive smarter, more focused testing and automation. Mermaid JS is used for visualizing root cause patterns, bug density, and risk-based test planning.*
