@@ -97,9 +97,13 @@
 - **Average resolution time:** [Data not available, recommend tracking in future sprints]
 
 - **Severity distribution pie chart:**
-    - P1: 4
-    - P2: 5
-    - P3: 1
+```mermaid
+     pie
+      title Bug Severity Distribution
+      "P1 (Critical)" : 4
+      "P2 (Major)"    : 5
+      "P3 (Minor)"    : 1
+```
 
 - **Bugs by status bar chart:**
     - Open: 10
@@ -157,19 +161,40 @@ Generated from past bugs/incidents:
 
 ---
 
-### 9. Charts & Visuals (optional)
+### 9. Charts & Visuals 
 
-- **Bug Count by Module:**  
-  (Dashboard: 2, All others: 1 each)
+
+- **Bug Count by Module:**
+```mermaid
+pie
+    title Bug Count by Module
+    "Dashboard" : 2
+    "KYC" : 1
+    "Auth" : 1
+    "Analytics" : 1
+    "Notification" : 1
+    "Mobile" : 1
+    "Funds" : 1
+    "Compliance" : 1
+    "Audit" : 1
+```
 
 - **Bug Split by Category:**
-    - FE: 4 (UI, Notification, Mobile, Dashboard)
-    - BE: 6 (KYC, Analytics, Funds, Audit, Security, Compliance)
+```mermaid
+pie
+    title Bug Split by Category
+    "FE (UI, Notification, Mobile, Dashboard)" : 4
+    "BE (KYC, Analytics, Funds, Audit, Security, Compliance)" : 6
+```
 
 - **Bug Count by Priority & Status:**
-    - P1: 4 (All Open)
-    - P2: 5 (All Open)
-    - P3: 1 (Open)
+```mermaid
+pie
+    title Bug Count by Priority & Status
+    "P1 (All Open)" : 4
+    "P2 (All Open)" : 5
+    "P3 (Open)" : 1
+```
 
 ---
 
