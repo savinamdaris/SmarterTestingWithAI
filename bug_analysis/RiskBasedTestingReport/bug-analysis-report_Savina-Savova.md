@@ -1,109 +1,189 @@
-# 🟢 Risk-Based Testing Report (Mermaid JS Visualization)
+## 🟢 Combined Bug Trend & Analysis Report for Markets.com Project
 
 ---
 
-## 1. Bug Density & Risk Mapping
+### 1. High Bug Trend Modules & Bug Density
 
-```mermaid
-graph TD
-    subgraph High Risk [High Risk Modules (Risk Score 5)]
-        D1[Dashboard (UI/Performance)]
-        K1[KYC/Onboarding]
-        A1[Authentication/Security]
-        M1[Mobile Trading]
-        C1[Compliance/Registration]
-    end
-    subgraph Medium Risk [Medium Risk Modules (Risk Score 4)]
-        AN1[Analytics]
-        N1[Notification/Alerts]
-        F1[Funds/Withdrawal]
-        AU1[Audit/Trading]
-    end
+| Module/Component         | Bug Count | Critical Count (P1) | Automation Gap |
+|-------------------------|-----------|---------------------|---------------|
+| Dashboard (UI/Performance) | 2         | 0                   | High          |
+| KYC/Onboarding             | 1         | 1                   | Medium        |
+| Authentication/Security    | 1         | 1                   | Medium        |
+| Analytics                  | 1         | 0                   | High          |
+| Notification/Alerts        | 1         | 0                   | High          |
+| Mobile Trading             | 1         | 1                   | High          |
+| Funds/Withdrawal           | 1         | 0                   | Medium        |
+| Compliance/Registration    | 1         | 1                   | Medium        |
+| Audit/Trading              | 1         | 0                   | High          |
 
-    D1 -- "2 bugs" --> D2[UI, Real-time, Performance]
-    K1 -- "1 bug" --> K2[Integration, Negative]
-    A1 -- "1 bug" --> A2[Security, Auth]
-    M1 -- "1 bug" --> M2[Device, Crash]
-    C1 -- "1 bug" --> C2[Compliance, Registration]
-
-    AN1 -- "1 bug" --> AN2[Role-based, Data Integrity]
-    N1 -- "1 bug" --> N2[Alert Delivery, Edge Cases]
-    F1 -- "1 bug" --> F2[Transactional, Error Flows]
-    AU1 -- "1 bug" --> AU2[Audit Trail, Data Integrity]
-```
+**Top 3 High-Density Areas:**
+1. Dashboard (UI/Performance)
+2. KYC/Onboarding
+3. Authentication/Security
 
 ---
 
-## 2. Automation Candidates Table (Mermaid Table)
+### 2. Bug Clustering & Categorization
 
-```mermaid
-%%| Bug Title | Module/Feature | Test Automation Candidate? | Suggested Test Type |
-%%|-----------|----------------|---------------------------|---------------------|
-%%| ...       | ...            | ...                       | ...                 |
-%% Mermaid does not support markdown tables, so use a flowchart for mapping
+**Clusters (by root cause/symptom):**
+- **Authentication & Security:**
+    - [Security] 2FA prompt missing on login
+    - [Compliance] User from restricted jurisdiction can register
+- **KYC & Onboarding:**
+    - [Regression] KYC Verification fails for valid passport
+    - [Funds] Withdrawal fails for verified user
+- **Portfolio & Dashboard:**
+    - [UI] Portfolio dashboard does not update after trade
+    - [Performance] Dashboard loads in >5 seconds during peak hours
+- **Analytics & Role Management:**
+    - [Analytics] Advanced analytics not available for EXCELLENT user
+- **Notification & Alerts:**
+    - [Notification] Price alert not sent to user
+- **Mobile & Trading:**
+    - [Mobile] App crashes on order execution
+- **Audit & Logging:**
+    - [Audit] Trade execution not logged in audit trail
 
-flowchart TD
-    KYC([KYC Verification fails for valid passport]) -->|API/Integration, E2E| KYC_Tests
-    Dashboard([Portfolio dashboard does not update after trade]) -->|UI, Real-time Data| Dashboard_Tests
-    Auth([2FA prompt missing on login]) -->|Security, Auth Flow| Auth_Tests
-    Analytics([Advanced analytics not available for EXCELLENT]) -->|Role-based Access, UI| Analytics_Tests
-    Notification([Price alert not sent to user]) -->|Notification, E2E| Notification_Tests
-    Mobile([App crashes on order execution]) -->|Mobile, Stress, E2E| Mobile_Tests
-    Funds([Withdrawal fails for verified user]) -->|Funds, Transactional| Funds_Tests
-    Perf([Dashboard loads in >5 seconds]) -->|Performance, Load| Perf_Tests
-    Compliance([User from restricted jurisdiction can register]) -->|Registration, Compliance| Compliance_Tests
-    Audit([Trade execution not logged in audit trail]) -->|Audit, Data Integrity| Audit_Tests
-```
-
----
-
-## 3. Test Scope Generation (Sample)
-
-```mermaid
-flowchart TD
-    A[Input: P1-P2 Bugs] --> B[Prompt: "List test cases that would have caught the issues earlier"]
-    B --> C[Outcome: Regression test backlog]
-    C --> D1[KYC: Valid/invalid document upload]
-    C --> D2[Dashboard: Real-time update after trade]
-    C --> D3[Auth: 2FA prompt for all roles]
-    C --> D4[Analytics: Role-based access for EXCELLENT]
-    C --> D5[Notification: Price alert delivery]
-    C --> D6[Mobile: Order execution on iOS/Android]
-    C --> D7[Funds: Withdrawal for verified user]
-    C --> D8[Compliance: Block restricted jurisdiction]
-    C --> D9[Audit: Trade execution logging]
-```
+**Suggested Categories:**
+- FE (Frontend): UI, Notification, Mobile, Dashboard
+- BE (Backend): KYC, Analytics, Funds, Audit, Security, Compliance
+- Performance: Dashboard
+- Data: Audit, Analytics
 
 ---
 
-## 4. Risk-Based Prioritization Table (Mermaid Gantt)
+### 3. Severity & Impact Summarization
 
-```mermaid
-gantt
-    title Risk-Based Testing Prioritization
-    dateFormat  YYYY-MM-DD
-    section High Risk (Score 5)
-    Dashboard (UI/Performance)      :done,    des1, 2024-06-01, 5d
-    KYC/Onboarding                  :active,  des2, 2024-06-06, 5d
-    Authentication/Security         :active,  des3, 2024-06-11, 5d
-    Mobile Trading                  :         des4, 2024-06-16, 5d
-    Compliance/Registration         :         des5, 2024-06-21, 5d
-    section Medium Risk (Score 4)
-    Analytics                       :         des6, 2024-06-26, 4d
-    Notification/Alerts             :         des7, 2024-06-30, 4d
-    Funds/Withdrawal                :         des8, 2024-07-04, 4d
-    Audit/Trading                   :         des9, 2024-07-08, 4d
-```
+| Bug ID  | Module/Feature         | Severity | Root Cause (if known)                |
+|---------|------------------------|----------|--------------------------------------|
+| 10001   | KYC/Onboarding         | 1        | Document recognition failure         |
+| 10002   | Portfolio Dashboard    | 2        | Real-time update logic missing       |
+| 10003   | Authentication/Security| 1        | 2FA logic not triggered              |
+| 10004   | Analytics              | 2        | Role-based access misconfiguration   |
+| 10005   | Notification/Alerts    | 2        | Notification delivery failure        |
+| 10006   | Mobile Trading         | 1        | App crash on order execution         |
+| 10007   | Funds/Withdrawal       | 2        | Withdrawal logic error               |
+| 10008   | Dashboard Performance  | 3        | Slow queries or resource contention  |
+| 10009   | Compliance/Registration| 1        | Jurisdiction check missing           |
+| 10010   | Audit/Trading          | 2        | Audit logging not triggered          |
 
----
-
-## 5. Summary
-
-- **High-risk modules** (Dashboard, KYC, Auth, Mobile, Compliance) should be prioritized for regression, integration, and negative testing.
-- **Automation** should focus on gaps identified in the automation candidates mapping.
-- **Test scope** should be expanded based on historical incidents, as visualized above.
-- **Risk scoring** and prioritization should guide both manual and automated test planning.
+**Severity Summary:**
+- Severity 1: 4 bugs
+- Severity 2: 5 bugs
+- Severity 3: 1 bug
 
 ---
 
-*This report uses Mermaid JS to visually map bug trends, automation scope, and risk-based priorities for smarter QA and test planning.*
+### 4. Root Cause Pattern Detection
+
+**Top 5 Recurring Root Cause Patterns:**
+1. **Missing or incorrect business logic:** (e.g., 2FA not triggered, jurisdiction check missing, role-based analytics access)
+    - *Prevention:* Add contract tests, strengthen business rule validation, review requirements.
+2. **Integration/communication failures:** (e.g., KYC document recognition, notification delivery, audit logging)
+    - *Prevention:* Add integration and end-to-end tests, improve error handling and monitoring.
+3. **UI/UX update issues:** (e.g., dashboard not updating, slow dashboard)
+    - *Prevention:* Add UI regression and performance tests, monitor real-time data flows.
+4. **Mobile platform instability:** (e.g., app crash on order execution)
+    - *Prevention:* Expand mobile device test coverage, automate crash reporting, stress test order flows.
+5. **Data consistency and audit gaps:** (e.g., audit trail missing, withdrawal logic error)
+    - *Prevention:* Add data integrity checks, enforce audit logging in workflows, review transaction handling.
+
+---
+
+### 5. Bug Metrics Summary
+
+- **Total bugs:** 10
+- **Critical bugs (P1):** 4
+- **Average resolution time:** [Data not available, recommend tracking in future sprints]
+
+- **Severity distribution pie chart:**
+    - P1: 4
+    - P2: 5
+    - P3: 1
+
+- **Bugs by status bar chart:**
+    - Open: 10
+    - [Add Closed/Resolved as data becomes available]
+
+---
+
+### 6. Automation Candidates Table
+
+| Bug Title                                         | Module/Feature         | Test Automation Candidate? | Suggested Test Type         |
+|---------------------------------------------------|------------------------|----------------------------|-----------------------------|
+| KYC Verification fails for valid passport         | KYC/Onboarding         | Yes                        | API/Integration, E2E        |
+| Portfolio dashboard does not update after trade   | Dashboard              | Yes                        | UI, Real-time Data          |
+| 2FA prompt missing on login                       | Authentication/Security| Yes                        | Security, Auth Flow         |
+| Advanced analytics not available for EXCELLENT    | Analytics              | Yes                        | Role-based Access, UI       |
+| Price alert not sent to user                      | Notification/Alerts    | Yes                        | Notification, E2E           |
+| App crashes on order execution                    | Mobile Trading         | Yes                        | Mobile, Stress, E2E         |
+| Withdrawal fails for verified user                | Funds/Withdrawal       | Yes                        | Funds, Transactional        |
+| Dashboard loads in >5 seconds                     | Dashboard              | Yes                        | Performance, Load           |
+| User from restricted jurisdiction can register    | Compliance/Registration| Yes                        | Registration, Compliance    |
+| Trade execution not logged in audit trail         | Audit/Trading          | Yes                        | Audit, Data Integrity       |
+
+---
+
+### 7. Test Cases to Create
+
+Generated from past bugs/incidents:
+
+- KYC: Test valid/invalid document uploads, edge cases for document types, and error handling.
+- Dashboard: Test real-time updates after trades, UI refresh, and data consistency.
+- Authentication: Test 2FA prompt for all roles, negative scenarios for bypass.
+- Analytics: Test role-based access, data visibility, and permissions.
+- Notification: Test alert triggers, delivery to all channels, and user preferences.
+- Mobile: Test order execution on all supported devices, crash recovery.
+- Funds: Test withdrawal for all account statuses, error handling for failed transactions.
+- Performance: Test dashboard load times under peak and normal conditions.
+- Compliance: Test registration from all supported and restricted jurisdictions.
+- Audit: Test logging for all trade executions, data retention, and audit trail completeness.
+
+---
+
+### 8. Risk-Based Prioritization Table
+
+| Module/Component         | Risk Score (1–5) | Recommended Action                        |
+|-------------------------|------------------|-------------------------------------------|
+| Dashboard (UI/Performance) | 5                | Prioritize regression and performance automation |
+| KYC/Onboarding             | 5                | Strengthen integration and negative tests |
+| Authentication/Security    | 5                | Expand security and auth test coverage    |
+| Analytics                  | 4                | Add role-based and data integrity tests   |
+| Notification/Alerts        | 4                | Automate alert delivery and edge cases    |
+| Mobile Trading             | 5                | Increase device coverage and crash tests  |
+| Funds/Withdrawal           | 4                | Automate transactional and error flows    |
+| Compliance/Registration    | 5                | Automate jurisdiction and compliance checks|
+| Audit/Trading              | 4                | Automate audit trail and data integrity   |
+
+---
+
+### 9. Charts & Visuals (optional)
+
+- **Bug Count by Module:**  
+  (Dashboard: 2, All others: 1 each)
+
+- **Bug Split by Category:**
+    - FE: 4 (UI, Notification, Mobile, Dashboard)
+    - BE: 6 (KYC, Analytics, Funds, Audit, Security, Compliance)
+
+- **Bug Count by Priority & Status:**
+    - P1: 4 (All Open)
+    - P2: 5 (All Open)
+    - P3: 1 (Open)
+
+---
+
+### 10. AI-Driven Test Scope & Risk Insights
+
+- **Test Scope Generation:**  
+  All critical and high-frequency bugs are strong candidates for automated regression tests, especially for authentication, KYC, dashboard, and mobile trading flows.
+
+- **Test Prioritization:**  
+  Focus immediate automation and exploratory testing on Dashboard, KYC, Authentication, Mobile, and Compliance modules due to high risk and business impact.
+
+- **Risk Scoring:**  
+  Modules with repeated or critical bugs (risk score 5) should be prioritized for both manual and automated regression, with additional contract and integration tests.
+
+---
+
+*These insights can guide targeted regression, automation, and preventive testing for the most fragile and business-critical areas of the platform.*
