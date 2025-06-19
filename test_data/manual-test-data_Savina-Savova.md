@@ -132,12 +132,6 @@ This document provides a full-featured test data strategy for the Markets.com tr
    - Data: Device: iPhone 14, Trade: TSLA, Expected: Order placed, confirmation received
 
 ---
----
----
----
----
----
----
 
 ## Task 4: Markdown Report – Test Data Strategy & Benefits
 
@@ -158,7 +152,6 @@ This document provides a full-featured test data strategy for the Markets.com tr
 - **Facilitates communication** between QA, dev, and business teams with clear, structured test data documentation.
 
 ---
-
 # AI-Generated Test Data for Manual Testing
 
 ---
@@ -168,7 +161,7 @@ This document provides a full-featured test data strategy for the Markets.com tr
 - **Feature tested:** User Registration & Onboarding (including KYC) for Markets.com
 
 - **Test cases summary (coverage achieved):**
-  - 20 test cases covering positive registration, negative/validation errors, edge cases, compliance (KYC, jurisdiction, age), and special data (non-Latin, long names, rare countries).
+  - 20+ test cases covering positive registration, negative/validation errors, edge cases, compliance (KYC, jurisdiction, age), and special data (non-Latin, long names, rare countries).
   - Scenarios include: duplicate email, weak password, underage user, restricted jurisdiction, invalid/missing KYC, expired ID, mismatched KYC name, phone validation, and more.
 
 - **Most valuable test scenarios identified:**
@@ -251,4 +244,160 @@ This document provides a full-featured test data strategy for the Markets.com tr
     - **Solution:** Focused on robust data-driven tests and prioritized API-level automation for critical flows.
 
 ---
+---
+---
+🧩 Stretch Goals
 
+# 📚 Test Data Assets for Markets.com
+
+This document provides a comprehensive set of test data resources for critical features, localization, data validation, user journeys, and visual mapping to requirements and risks.
+
+---
+
+## 1. Test Case Library
+
+**Feature: User Registration & Onboarding**
+
+| TC# | Scenario | Test Data | Expected Result | Priority |
+|-----|----------|-----------|----------------|----------|
+| 1 | Valid registration (UK) | Name: Alice Johnson, Email: alice.j@email.com, Password: Qw!12345, DOB: 1993-09-12, Country: UK, KYC: Passport | Success, user verified | High |
+| 2 | Duplicate email | Name: Brian Green, Email: alice.j@email.com, Password: Qw!12345, DOB: 1985-05-10, Country: UK, KYC: Passport | Error: Email in use | High |
+| 3 | Weak password | Name: Clara White, Email: clara.w@email.com, Password: 12345, DOB: 1990-01-01, Country: UK, KYC: Passport | Error: Weak password | High |
+| 4 | Underage user | Name: Dan Young, Email: dan.y@email.com, Password: Qw!12345, DOB: 2010-06-15, Country: UK, KYC: Passport | Error: Must be 18+ | High |
+| 5 | Restricted jurisdiction | Name: Eva Smith, Email: eva.s@email.com, Password: Qw!12345, DOB: 1980-03-22, Country: US, KYC: Passport | Error: Not allowed | High |
+| 6 | Missing KYC | Name: Grace Kim, Email: grace.k@email.com, Password: Qw!12345, DOB: 1995-07-07, Country: UK, KYC: None | Error: KYC required | High |
+| 7 | Expired ID | Name: Henry Ford, Email: henry.f@email.com, Password: Qw!12345, DOB: 1975-12-12, Country: UK, KYC: Expired Passport | Error: Expired ID | High |
+| 8 | Special characters in name | Name: Zoë Müller, Email: zoe.m@email.com, Password: Qw!12345, DOB: 1992-02-02, Country: UK, KYC: Passport | Success | Medium |
+| 9 | Non-Latin name | Name: 李小龙, Email: bruce.l@email.com, Password: Qw!12345, DOB: 1980-11-27, Country: UK, KYC: Passport | Success | Medium |
+| 10 | Long name | Name: Maximilianus Alexander The Great Johnson III, Email: max.a@email.com, Password: Qw!12345, DOB: 1982-08-08, Country: UK, KYC: Passport | Success | Low |
+
+**Feature: Funds Withdrawal**
+
+| TC# | Scenario | Test Data | Expected Result | Priority |
+|-----|----------|-----------|----------------|----------|
+| 1 | Withdraw full balance | User: Alice Johnson, Amount: £12,500 | Success, balance £0 | High |
+| 2 | Withdraw over balance | User: Alice Johnson, Amount: £15,000 | Error: Insufficient funds | High |
+| 3 | Withdraw with unverified KYC | User: New User, Amount: £100 | Error: KYC required | High |
+| 4 | Withdraw to invalid account | User: Brian Green, Account: ACC-XXXX | Error: Invalid account | Medium |
+
+---
+
+## 2. Localization Testing Kit
+
+**Target Markets:** United Kingdom, Germany, Japan, United Arab Emirates, Brazil
+
+| Field         | UK Example           | DE Example           | JP Example           | AE Example           | BR Example           |
+|---------------|---------------------|----------------------|----------------------|----------------------|----------------------|
+| Name          | Alice Johnson       | Jürgen Müller        | 山田 太郎             | فاطمة المنصوري        | João da Silva        |
+| Address       | 1A The Crescent, London, W1A 1AA | Hauptstr. 5, 10115 Berlin | 東京都新宿区西新宿2-8-1 | شارع الشيخ زايد، دبي | Av. Paulista, 1000, São Paulo, 01310-100 |
+| Currency      | £100.00             | 100,00 €             | ￥10,000              | د.إ100.00            | R$100,00             |
+| Date Format   | 31/12/2024          | 31.12.2024           | 2024/12/31            | 31-12-2024           | 31/12/2024           |
+| Phone         | +44 7911 123456     | +49 1512 3456789     | 090-1234-5678         | +971 50 123 4567     | +55 11 91234-5678    |
+| Language      | English             | Deutsch              | 日本語                 | العربية               | Português            |
+| KYC Doc       | Passport            | Personalausweis      | 運転免許証             | جواز السفر            | RG                   |
+
+**Cultural Considerations:**
+- Name order (surname first in JP), right-to-left text (AE), special characters (DE, JP, AE, BR)
+- Currency symbol placement and decimal separator
+- Address formats and postal code validation
+- Date and number formatting
+
+---
+
+## 3. Testing Checklists
+
+**Email Field Checklist**
+- [ ] Accepts standard email (user@domain.com)
+- [ ] Accepts subdomain (user@mail.domain.com)
+- [ ] Rejects missing @
+- [ ] Rejects missing domain
+- [ ] Rejects double dots
+- [ ] Accepts one-char TLD
+- [ ] Handles non-Latin characters
+
+**Date Field Checklist**
+- [ ] Accepts valid date (YYYY-MM-DD)
+- [ ] Accepts leap year
+- [ ] Rejects invalid date (2025-02-30)
+- [ ] Rejects wrong format (DD/MM/YYYY)
+- [ ] Handles future/past edge cases
+
+**Currency Field Checklist**
+- [ ] Accepts positive values
+- [ ] Accepts zero
+- [ ] Rejects negative values
+- [ ] Handles large/small values
+- [ ] Accepts local currency symbols
+
+**Password Field Checklist**
+- [ ] Enforces minimum length
+- [ ] Requires uppercase, lowercase, digit, special char
+- [ ] Rejects common passwords
+- [ ] Handles spaces and non-Latin chars
+
+---
+
+## 4. User Journey Test Data
+
+**End-to-End Scenario: New User Registration to First Trade**
+
+1. **Registration**
+   - Name: Alice Johnson
+   - Email: alice.j@email.com
+   - Password: Qw!12345
+   - DOB: 1993-09-12
+   - Country: UK
+
+2. **KYC Upload**
+   - Passport: UK1234567A
+   - Proof of Address: Utility Bill
+
+3. **Deposit Funds**
+   - Amount: £5,000
+   - Payment Method: Visa 4111 1111 1111 1111, Exp: 12/26
+
+4. **Place Trade**
+   - Instrument: XAU/USD
+   - Order: Buy, 1.0 Lot, Price: 2345.70
+
+5. **Receive Notification**
+   - Type: Trade Execution
+   - Channel: Email
+
+6. **Withdraw Funds**
+   - Amount: £1,000
+   - Destination: ACC-8247
+
+**All data is interconnected and reflects a real user journey, ensuring coverage of registration, compliance, funding, trading, notification, and withdrawal flows.**
+
+---
+
+## 5. Test Data Documentation: Visual Guide
+
+```mermaid
+flowchart TD
+    A[Requirements]
+    B[Test Data]
+    C[Features]
+    D[Potential Risks]
+    E[Coverage]
+
+    A -->|User must be 18+| B
+    A -->|KYC required| B
+    A -->|Unique email| B
+    B -->|Used in| C
+    C -->|Registration| D
+    C -->|KYC| D
+    C -->|Withdrawal| D
+    D -->|Risk: Compliance| E
+    D -->|Risk: Security| E
+    D -->|Risk: Data Loss| E
+    E -->|Mitigated by| B
+```
+
+- **How to use:**  
+  - Trace each requirement to the specific test data and feature it covers.
+  - See which risks are addressed by which data sets.
+  - Use this map to identify gaps and ensure all critical flows are tested.
+
+---
