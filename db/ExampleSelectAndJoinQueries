@@ -1,0 +1,73 @@
+-- 1. Get all open positions for a user with account and instrument details
+SELECT
+    u.full_name,
+    a.account_id,
+    i.symbol,
+    i.name AS instrument_name,
+    p.side,
+    p.lot_size,
+    p.open_price,
+    p.open_date
+FROM users u
+JOIN accounts a ON u.user_id = a.user_id
+JOIN positions p ON a.account_id = p.account_id
+JOIN instruments i ON p.instrument_id = i.instrument_id
+WHERE u.email = 'alice.johnson@email.com'
+  AND p.status = 'Open';
+
+-- 2. List all transactions for a user, including account currency
+SELECT
+    u.full_name,
+    t.txn_type,
+    t.amount,
+    t.txn_date,
+    a.currency
+FROM users u
+JOIN accounts a ON u.user_id = a.user_id
+JOIN transactions t ON a.account_id = t.account_id
+WHERE u.user_id = 1001
+ORDER BY t.txn_date DESC;
+
+-- 3. Get KYC document status for all users in a given jurisdiction
+SELECT
+    u.full_name,
+    u.jurisdiction,
+    k.doc_type,
+    k.status,
+    k.upload_date
+FROM users u
+JOIN kyc_documents k ON u.user_id = k.user_id
+WHERE u.jurisdiction = 'United Kingdom';
+
+-- 4. Find all users with margin calls in the last 30 days
+SELECT
+    u.full_name,
+    t.amount,
+    t.txn_date
+FROM users u
+JOIN accounts a ON u.user_id = a.user_id
+JOIN transactions t ON a.account_id = t.account_id
+WHERE t.txn_type = 'Margin Call'
+  AND t.txn_date >= DATE_SUB(NOW(), INTERVAL 30 DAY);
+
+-- 5. Get audit log for a specific user
+SELECT
+    u.full_name,
+    a.action,
+    a.details,
+    a.timestamp
+FROM users u
+JOIN audit_log a ON u.user_id = a.user_id
+WHERE u.user_id = 1001
+ORDER BY a.timestamp DESC;
+
+-- 6. List all notifications sent to a user
+SELECT
+    n.type,
+    n.message,
+    n.channel,
+    n.sent_at
+FROM notifications n
+JOIN users u ON n.user_id = u.user_id
+WHERE u.email = 'alice.johnson@email.com'
+ORDER BY n.sent_at DESC;
