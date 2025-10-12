@@ -1,0 +1,34 @@
+name: Playwright API Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Playwright
+        run: npx playwright install
+
+      - name: Start mock server
+        run: |
+          nohup node API_Tests/mocks/server.js &
+          sleep 2
+
+      - name: Run Playwright tests
+        run: npx playwright test API_Tests/playwright
