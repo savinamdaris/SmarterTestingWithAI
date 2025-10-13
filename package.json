@@ -5,5 +5,8 @@
   },
   "dependencies": {
     "express": "^5.1.0"
+  },
+  "scripts": {
+    "api-test": "npx newman run \"API_Tests/playwright/API_Tests Mock Collection.postman_collection.json\" -r cli,html --reporter-html-export newman-report.html"
   }
 }

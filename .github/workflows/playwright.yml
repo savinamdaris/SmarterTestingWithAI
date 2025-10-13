@@ -7,9 +7,9 @@ on:
     branches: [main]
 
 jobs:
+
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -34,7 +34,7 @@ jobs:
         run: npx playwright test API_Tests/playwright --reporter=html
 
       - name: Run Postman Collection with Newman
-        run: npx newman run API_Tests/playwright/API_Tests\ Mock\ Collection.postman_collection.json -r cli,html --reporter-html-export newman-report.html
+        run: npm run api-test
 
       - name: Upload Newman HTML report
         uses: actions/upload-artifact@v4

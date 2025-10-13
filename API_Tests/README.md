@@ -24,6 +24,11 @@ This folder contains:
    npx playwright test API_Tests/playwright
    ```
 
+3. Run all API requests in the Postman collection using Newman:
+  ```sh
+  npm run api-test
+  ```
+
 Endpoints and test cases are based on the Postman collection example.
 ## Troubleshooting Tip
 If you have issues starting the mock server (e.g., port already in use), you can check and kill processes using the port:
