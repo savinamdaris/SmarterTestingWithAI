@@ -1,0 +1,705 @@
+{
+	"info": {
+		"_postman_id": "d69fcf8c-dafb-4e4b-8ced-87fd74272ec7",
+		"name": "API_Tests Mock Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6798111"
+	},
+	"item": [
+		{
+			"name": "Token - Obtain",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"login\": \"testuser\",\n\"password\": \"testpass\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/token/obtain",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"token",
+						"obtain"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token - Renew",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"renewToken\": \"mock-renew-token\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/token/renew",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"token",
+						"renew"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Configs - Questionnaire",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/configs/questionnaire?company=SafecapLTD&country=UK&instrumentTypes=CFD",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"configs",
+						"questionnaire"
+					],
+					"query": [
+						{
+							"key": "company",
+							"value": "SafecapLTD"
+						},
+						{
+							"key": "country",
+							"value": "UK"
+						},
+						{
+							"key": "instrumentTypes",
+							"value": "CFD"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Configs - Countries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/configs/country",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"configs",
+						"country"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Configs - Companies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/configs/companies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"configs",
+						"companies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Configs - Forbidden Countries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/configs/forbidden-country",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"configs",
+						"forbidden-country"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Configs - Grace Period",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/configs/grace-period",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"configs",
+						"grace-period"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer - Configs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/customer/configs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"customer",
+						"configs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer - Info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/customer/info",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"customer",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer - Account Configs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/customer/account-configs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"customer",
+						"account-configs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer - Trading Accounts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/customer/trading-accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"customer",
+						"trading-accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Documents - Configs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/documents/configs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"documents",
+						"configs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Documents - Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/documents/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"documents",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Documents - NPI",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/documents/npi",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"documents",
+						"npi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Documents - Upload",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"type\": \"PROOF_OF_ID\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/documents/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"documents",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Funds - Credit Cards",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/funds/credit-cards",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"funds",
+						"credit-cards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Funds - Deposit",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"amount\": 100\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/funds/deposit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"funds",
+						"deposit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Funds - Transfer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"from\": \"ACC-1\",\n\"to\": \"ACC-2\",\n\"amount\": 50\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/funds/transfer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"funds",
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Password - Change",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"oldPassword\": \"old\",\n\"newPassword\": \"new\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/password/change",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"password",
+						"change"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Password - Reset",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"email\": \"user@example.com\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/password/reset",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"password",
+						"reset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Password - Validate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"password\": \"testpass\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/password/validate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"password",
+						"validate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subscriptions - Get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/subscriptions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"subscriptions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subscriptions - Update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"subscriptions\": [\"newsletter\"]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/subscriptions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"subscriptions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subscriptions - Unsubscribe",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"subscription\": \"newsletter\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/unsubscribe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"unsubscribe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Social - Google Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"token\": \"google-token\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/customers/google",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"customers",
+						"google"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Social - Facebook Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"token\": \"facebook-token\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/customers/facebook",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"customers",
+						"facebook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Social - Apple Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"token\": \"apple-token\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/customers/apple",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"customers",
+						"apple"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
