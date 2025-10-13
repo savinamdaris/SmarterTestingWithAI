@@ -1,6 +1,7 @@
 {
   "devDependencies": {
-    "@playwright/test": "^1.56.0"
+    "@playwright/test": "^1.56.0",
+    "newman": "^6.2.1"
   },
   "dependencies": {
     "express": "^5.1.0"
