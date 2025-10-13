@@ -22,8 +22,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install Newman HTML reporter
-        run: npm install --save-dev newman-reporter-html
 
       - name: Install Playwright
         run: npx playwright install
